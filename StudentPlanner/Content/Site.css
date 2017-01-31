@@ -30,21 +30,18 @@ main {
 }
 
 footer{
-    clear:both;
     text-align:center;
 }
-
-.sidebar ul{
-    list-style:none;
+.navbar-default {
+background-color:aliceblue;
+}
+.jumbotron {
+background-color:aliceblue !important;
+padding-top:1px;
 }
 
-.navbar{
-    background-color: azure;
-}
-
-.navbar-nav li:active{
+hr {
 color:black;
 }
-
 
 
