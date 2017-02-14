@@ -13,7 +13,7 @@ namespace StudentPlanner.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201702141453100_Update"; }
+            get { return "201702141502372_Update"; }
         }
         
         string IMigrationMetadata.Source

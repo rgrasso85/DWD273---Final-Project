@@ -9,8 +9,10 @@ namespace StudentPlanner.Models
     {
 
         public int ID { get; set; }
-        [Display(Name = "Assignment")]
+        [Display(Name = "Assignment Name")]
         public string AssignmentName { get; set; }
+        [Display(Name = "Description")]
+        public string AssignmentDescription { get; set; }
         [Display(Name = "Due Date")]
         public DateTime DueDate { get; set; }
         public int CourseID { get; set; }

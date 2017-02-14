@@ -10,6 +10,7 @@ namespace StudentPlanner.Models
         public int ID { get; set; }
         [Display(Name ="Course Title")]
         public string CourseTitle { get; set; }
+        [Display(Name ="Course Number")]
         public string CourseNumber { get; set; }
     }
 }
