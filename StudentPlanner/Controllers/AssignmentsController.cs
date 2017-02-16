@@ -10,18 +10,18 @@ using StudentPlanner.Models;
 
 namespace StudentPlanner.Controllers
 {
-    public class AssignmentController : Controller
+    public class AssignmentsController : Controller
     {
         private CourseContext db = new CourseContext();
 
-        // GET: Assignment
+        // GET: Assignments
         public ActionResult Index()
         {
             var assignments = db.Assignments.Include(a => a.Course);
             return View(assignments.ToList());
         }
 
-        // GET: Assignment/Details/5
+        // GET: Assignments/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,19 +36,19 @@ namespace StudentPlanner.Controllers
             return View(assignments);
         }
 
-        // GET: Assignment/Create
+        // GET: Assignments/Create
         public ActionResult Create()
         {
             ViewBag.CourseID = new SelectList(db.Course, "ID", "CourseTitle");
             return View();
         }
 
-        // POST: Assignment/Create
+        // POST: Assignments/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,AssignmentName,DueDate,CourseID")] Assignments assignments)
+        public ActionResult Create([Bind(Include = "ID,AssignmentName,AssignmentDescription,DueDate,CourseID")] Assignments assignments)
         {
             if (ModelState.IsValid)
             {
@@ -61,7 +61,7 @@ namespace StudentPlanner.Controllers
             return View(assignments);
         }
 
-        // GET: Assignment/Edit/5
+        // GET: Assignments/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -77,12 +77,12 @@ namespace StudentPlanner.Controllers
             return View(assignments);
         }
 
-        // POST: Assignment/Edit/5
+        // POST: Assignments/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,AssignmentName,DueDate,CourseID")] Assignments assignments)
+        public ActionResult Edit([Bind(Include = "ID,AssignmentName,AssignmentDescription,DueDate,CourseID")] Assignments assignments)
         {
             if (ModelState.IsValid)
             {
@@ -94,7 +94,7 @@ namespace StudentPlanner.Controllers
             return View(assignments);
         }
 
-        // GET: Assignment/Delete/5
+        // GET: Assignments/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -109,7 +109,7 @@ namespace StudentPlanner.Controllers
             return View(assignments);
         }
 
-        // POST: Assignment/Delete/5
+        // POST: Assignments/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

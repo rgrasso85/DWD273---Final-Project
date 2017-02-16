@@ -46,7 +46,7 @@ namespace StudentPlanner.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,CourseTitle,CourseNumber,StartDate,EndDate")] Course course)
+        public ActionResult Create([Bind(Include = "ID,CourseTitle,CourseNumber")] Course course)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace StudentPlanner.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,CourseTitle,CourseNumber,StartDate,EndDate")] Course course)
+        public ActionResult Edit([Bind(Include = "ID,CourseTitle,CourseNumber")] Course course)
         {
             if (ModelState.IsValid)
             {
