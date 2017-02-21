@@ -14,6 +14,7 @@ namespace StudentPlanner.Models
         [Display(Name = "Description")]
         public string AssignmentDescription { get; set; }
         [Display(Name = "Due Date")]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime DueDate { get; set; }
         public int CourseID { get; set; }
 
