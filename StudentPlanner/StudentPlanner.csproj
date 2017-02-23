@@ -212,6 +212,10 @@
     <Compile Include="Migrations\201702161400310_Update1.Designer.cs">
       <DependentUpon>201702161400310_Update1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702231438205_Progress.cs" />
+    <Compile Include="Migrations\201702231438205_Progress.Designer.cs">
+      <DependentUpon>201702231438205_Progress.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Assignments.cs" />
@@ -311,6 +315,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702161400310_Update1.resx">
       <DependentUpon>201702161400310_Update1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702231438205_Progress.resx">
+      <DependentUpon>201702231438205_Progress.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

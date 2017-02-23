@@ -26,7 +26,11 @@
         <th>
             @Html.DisplayNameFor(model => model.DueDate)
         </th>
+        <th>
+            Progress
+        </th>
         <th></th>
+
     </tr>
 
 @foreach (var item in Model) {
@@ -47,9 +51,17 @@
             @Html.DisplayFor(modelItem => item.DueDate)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            <div class="progress">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@Html.DisplayFor(modelItem => item.Progress)"
+                     aria-valuemin="0" aria-valuemax="100" style="width:@Html.DisplayFor(modelItem => item.Progress)%">
+                    <p>@Html.DisplayFor(modelItem => item.Progress)%</p>
+                </div>
+            </div>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
         </td>
     </tr>
 }

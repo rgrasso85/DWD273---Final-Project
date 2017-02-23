@@ -48,7 +48,7 @@ namespace StudentPlanner.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,AssignmentName,AssignmentDescription,DueDate,CourseID")] Assignments assignments)
+        public ActionResult Create([Bind(Include = "ID,AssignmentName,AssignmentDescription,DueDate,CourseID,Progress")] Assignments assignments)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace StudentPlanner.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,AssignmentName,AssignmentDescription,DueDate,CourseID")] Assignments assignments)
+        public ActionResult Edit([Bind(Include = "ID,AssignmentName,AssignmentDescription,DueDate,CourseID,Progress")] Assignments assignments)
         {
             if (ModelState.IsValid)
             {
