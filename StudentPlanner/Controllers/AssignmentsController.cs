@@ -10,6 +10,7 @@ using StudentPlanner.Models;
 
 namespace StudentPlanner.Controllers
 {
+    [Authorize]
     public class AssignmentsController : Controller
     {
         private CourseContext db = new CourseContext();

@@ -54,15 +54,15 @@ namespace StudentPlanner
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+            appId: "1893378377563427",
+            appSecret: "1009fcbfe438a6e528261d4c475c39ba");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+               ClientId = "907273901165-sljhh4k9e91mc757o1gd1rdd401nmp93.apps.googleusercontent.com",
+               ClientSecret = "opx_WlhOVIM9dBIWmGtTGW8F"
+            });
         }
     }
 }
