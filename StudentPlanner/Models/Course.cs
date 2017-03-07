@@ -12,5 +12,6 @@ namespace StudentPlanner.Models
         public string CourseTitle { get; set; }
         [Display(Name ="Course Number")]
         public string CourseNumber { get; set; }
+        public string UserID { get; set; }
     }
 }

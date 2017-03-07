@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using StudentPlanner.Models;
+using Microsoft.AspNet.Identity;
 
 namespace StudentPlanner.Controllers
 {
@@ -14,11 +15,11 @@ namespace StudentPlanner.Controllers
     public class CourseController : Controller
     {
         private CourseContext db = new CourseContext();
-
+       
         // GET: Course
         public ActionResult Index()
         {
-            return View(db.Course.ToList());
+            return View(db.Course.ToList().Where(a => a.UserID.Equals(User.Identity.GetUserId())));
         }
 
         // GET: Course/Details/5
@@ -47,10 +48,11 @@ namespace StudentPlanner.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,CourseTitle,CourseNumber")] Course course)
+        public ActionResult Create([Bind(Include = "ID,CourseTitle,CourseNumber,UserID")] Course course)
         {
             if (ModelState.IsValid)
             {
+                course.UserID = User.Identity.GetUserId();
                 db.Course.Add(course);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -79,10 +81,11 @@ namespace StudentPlanner.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,CourseTitle,CourseNumber")] Course course)
+        public ActionResult Edit([Bind(Include = "ID,CourseTitle,CourseNumber,UserID")] Course course)
         {
             if (ModelState.IsValid)
             {
+                course.UserID = User.Identity.GetUserId();
                 db.Entry(course).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

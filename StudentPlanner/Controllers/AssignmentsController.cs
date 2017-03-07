@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using StudentPlanner.Models;
+using Microsoft.AspNet.Identity;
 
 namespace StudentPlanner.Controllers
 {
@@ -19,7 +20,7 @@ namespace StudentPlanner.Controllers
         public ActionResult Index()
         {
             var assignments = db.Assignments.Include(a => a.Course);
-            return View(assignments.ToList());
+            return View(assignments.ToList().Where(a => a.Course.UserID.Equals(User.Identity.GetUserId())));
         }
 
         // GET: Assignments/Details/5

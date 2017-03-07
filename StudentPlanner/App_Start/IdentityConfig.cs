@@ -26,7 +26,7 @@ namespace StudentPlanner
         public Task SendAsync(IdentityMessage message)
         {
             // Twilio Begin
-            var Twilio = new TwilioRestClient(
+            /*var Twilio = new TwilioRestClient(
             System.Configuration.ConfigurationManager.AppSettings["SMSAccountIdentification"],
             System.Configuration.ConfigurationManager.AppSettings["SMSAccountPassword"]);
             var result = Twilio.SendMessage(
@@ -35,7 +35,7 @@ namespace StudentPlanner
             );
             // Status is one of Queued, Sending, Sent, Failed or null if the number is not valid
             Trace.TraceInformation(result.Status);
-            // Twilio doesn't currently have an async API, so return success.
+            // Twilio doesn't currently have an async API, so return success.*/
             return Task.FromResult(0);
             // Twilio End
         }
