@@ -41,7 +41,9 @@ namespace StudentPlanner.Controllers
         // GET: Assignments/Create
         public ActionResult Create()
         {
-            ViewBag.CourseID = new SelectList(db.Course, "ID", "CourseTitle");
+            var userID = User.Identity.GetUserId();
+            var relevantClasses = db.Course.Where(x => x.UserID.Equals(userID));
+            ViewBag.CourseID = new SelectList(relevantClasses, "ID", "CourseTitle");
             return View();
         }
 
@@ -75,7 +77,9 @@ namespace StudentPlanner.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CourseID = new SelectList(db.Course, "ID", "CourseTitle", assignments.CourseID);
+            var userID = User.Identity.GetUserId();
+            var relevantClasses = db.Course.Where(x => x.UserID.Equals(userID));
+            ViewBag.CourseID = new SelectList(relevantClasses, "ID", "CourseTitle", assignments.CourseID);
             return View(assignments);
         }
 
@@ -92,7 +96,9 @@ namespace StudentPlanner.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CourseID = new SelectList(db.Course, "ID", "CourseTitle", assignments.CourseID);
+            var userID = User.Identity.GetUserId();
+            var relevantClasses = db.Course.Where(x => x.UserID.Equals(userID));
+            ViewBag.CourseID = new SelectList(relevantClasses, "ID", "CourseTitle", assignments.CourseID);
             return View(assignments);
         }
 
